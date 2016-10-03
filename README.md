@@ -13,6 +13,8 @@
 ## Установка
 
 Загрузите содержимое репозитория в директорию /opt/passport
+Установите следующие пакеты 
+`sudo apt-get install gcc python3 python3-dev python3-pip python python-setuptools nginx`
 
 ### Установка зависимостей для python3
 
