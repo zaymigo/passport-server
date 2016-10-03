@@ -40,11 +40,6 @@ sudo pip install flask
 **Установите supervisord, добавте в него следующие приложения:**
 
 ```lang=ini
-[program:passport_proxy]
-directory=/opt/passport
-command=./bin/proxy --port=5000 --app=5001,5002
-
-
 [program:passport_web1]
 directory=/opt/passport
 command=python3 server.py --port=5001
