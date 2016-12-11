@@ -8,19 +8,20 @@ import http.client
 import time
 import logging
 
+MAX_APP_SERVER_TIMEOUT = 180
+STATE_RUNNING = 20
+APP_PATH = '/opt/passport'
+
 logger = logging.getLogger('updater')
 logger.setLevel(logging.DEBUG)
-loggerHandler = logging.FileHandler(os.path.curdir + '/update.log')
+loggerHandler = logging.FileHandler(APP_PATH + '/update.log')
 loggerFormatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 loggerHandler.setFormatter(loggerFormatter)
 logger.addHandler(loggerHandler)
 
 logger.info('Запускаем процесс обновления БД неактуальных паспортов')
 
-MAX_APP_SERVER_TIMEOUT = 180
-STATE_RUNNING = 20
-
-local_file = os.path.curdir + '/data/list_of_expired_passports.csv.bz2'
+local_file = APP_PATH + '/data/list_of_expired_passports.csv.bz2'
 remote_file = '/upload/expired-passports/list_of_expired_passports.csv.bz2'
 
 try:
@@ -69,19 +70,19 @@ try:
         logger.debug('Локальная база актуальна, завершаем процесс обновления')
 
     # Удаляем текущий csv
-    logger.debug('Удаляем текущий csv: ' + os.path.curdir + '/data/list_of_expired_passports.csv')
-    if os.path.isfile(os.path.curdir + '/data/list_of_expired_passports.csv'):
-        os.remove(os.path.curdir + '/data/list_of_expired_passports.csv')
+    logger.debug('Удаляем текущий csv: ' + APP_PATH + '/data/list_of_expired_passports.csv')
+    if os.path.isfile(APP_PATH + '/data/list_of_expired_passports.csv'):
+        os.remove(APP_PATH + '/data/list_of_expired_passports.csv')
 
     # Разархивируем скачанный архив
     logger.debug('Начинаем процесс разархивации')
-    file = open(os.path.curdir + '/data/list_of_expired_passports.csv', 'wb')
+    file = open(APP_PATH + '/data/list_of_expired_passports.csv', 'wb')
     file.write(bz2.decompress(open(local_file, 'rb').read()))
     file.close()
     logger.debug('Файл успешно разархивирован, обновляем информацию о последней дате обновления')
 
     # Сохраняем информацию о последней дате обновления
-    file = open(os.path.curdir + '/last_update.txt', 'w')
+    file = open(APP_PATH + '/last_update.txt', 'w')
     file.write(str(datetime.datetime.now()))
     file.close()
 
