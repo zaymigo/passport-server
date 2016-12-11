@@ -45,7 +45,7 @@ try:
         logger.critical('Unable fetch remote file size')
         raise Exception('Unable fetch remote file size')
 
-    if current_size != remote_size:
+    if int(current_size) != int(remote_size):
         # Удаляем текущую версию файла
         if os.path.isfile(local_file):
             os.remove(local_file)
