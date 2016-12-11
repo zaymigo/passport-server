@@ -39,7 +39,7 @@ try:
     response = connection.getresponse()
     connection.close()
     remote_size = int(response.getheader('Content-Length', 0))
-    logger.debug('Размер файла на сервере: ' + str(current_size))
+    logger.debug('Размер файла на сервере: ' + str(remote_size))
 
     if remote_size == 0:
         logger.critical('Unable fetch remote file size')
