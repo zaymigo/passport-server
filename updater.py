@@ -7,6 +7,7 @@ import xmlrpc.client
 import http.client
 import time
 import logging
+import traceback
 
 MAX_APP_SERVER_TIMEOUT = 180
 STATE_RUNNING = 20
@@ -122,6 +123,6 @@ try:
 
     logger.debug('Все сервера перезапущены и переинициализированы, процесс обновления успешен')
 except:
-    logger.exception("Unexpected error:" + sys.exc_info()[0])
+    logger.exception("Unexpected error:" + traceback.format_exc())
     raise
 
