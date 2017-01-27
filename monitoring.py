@@ -4,7 +4,7 @@ import pika
 import json
 import traceback
 
-APP_PATH = '/home/alex/PycharmProjects/passport-server'
+APP_PATH = '/opt/passport'
 QUEUE_NAME = 'monitoring_service_queue'
 EXCHANGE_NAME = 'event_monitoring_exchange'
 EVENT_NAME = 'test'
