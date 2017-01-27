@@ -46,8 +46,8 @@ message = {
 }
 
 channel = connectionQueue.channel()
-channel.queue_declare(queue=QUEUE_NAME, durable=True)
 try:
+    channel.queue_declare(queue=QUEUE_NAME, durable=True)
     channel.basic_publish(exchange=EXCHANGE_NAME,
                       routing_key='',
                       body=json.dumps(message))
