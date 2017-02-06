@@ -1,1 +1,2 @@
 0 * * * *   python3 /opt/passport/updater.py passport_web1:127.0.0.1:5001 passport_web2:127.0.0.1:5002
+0 * * * *   python3 /opt/passport/monitoring.py

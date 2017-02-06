@@ -7,12 +7,11 @@ import traceback
 APP_PATH = '/opt/passport'
 QUEUE_NAME = 'monitoring_service_queue'
 EXCHANGE_NAME = 'event_monitoring_exchange'
-EVENT_NAME = 'test'
-RABBIT_HOST = '127.0.0.1'
+RABBIT_HOST = 'rabbit1.zaymigo.local'
 RABBIT_PORT = 5672
-RABBIT_USER = 'guest'
-RABBIT_PWD = 'guest'
-RABBIT_VHOST = '/'
+RABBIT_USER = 'zaymigo'
+RABBIT_PWD = 's34a23tse'
+RABBIT_VHOST = 'zaymigo'
 
 
 logger = logging.getLogger('monitoring')
