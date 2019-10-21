@@ -33,7 +33,7 @@ try:
     logger.debug('Размер локального файла: ' + str(current_size))
 
     # Получаем размер удаленного файла
-    connection = http.client.HTTPSConnection('guvm.mvd.ru')
+    connection = http.client.HTTPSConnection('xn--b1ab2a0a.xn--b1aew.xn--p1ai')
     connection.connect()
     connection.request('HEAD', remote_file)
 
